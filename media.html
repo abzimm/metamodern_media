@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Metamodern Media</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles\style.css">
+    <link rel="stylesheet" href="styles\media.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body class="body">
+
+
+    <div class="container">
+
+        <div class="dimmed-background" id="dimmedBackground"></div>
+
+        <div class="nav">
+            <ul>
+                <li> <a href="background.html"> <img src="assets/theory_icon_.webp"> </a> </li>
+                <li><a href="media.html"> <img src="assets/media_icon_.webp"> </a></li>
+                <li> <a href="about.html"> <img src="assets/about_icon_.webp"> </a></li>
+                <li style="margin-top: 150%;"> <a href="index.html"> <img src="assets/houseicon.svg"> </a></li>
+            </ul>
+        </div>
+
+
+        <div class="content-container">
+            <!-- CHOOSE CONTENT -->
+            <h2> choose a category </h2>
+            <div class="category-list-container">
+                <ul class="category-list">
+                    <li>
+                        <button onclick="handleButtonClick(this)">
+                            <img src="assets/categorylist/bookicon.svg">
+                            <p>books</p>
+                            <img class="bg-graphic" src="assets/categorylist/bookbg.svg">
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="handleButtonClick(this)">
+                            <img src="assets/categorylist/movieicon.svg">
+                            <p>movies</p>
+                            <img class="bg-graphic" src="assets/categorylist/moviebg1.svg">
+                            <img class="bg-graphic-alt" src="assets/categorylist/moviebg2.svg">
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="handleButtonClick(this)">
+                            <img src="assets/categorylist/articon.svg">
+                            <p>art</p>
+                            <img class="bg-graphic" src="assets/categorylist/artbg1.svg">
+                            <img class="bg-graphic-alt" src="assets/categorylist/artbg2.svg">
+                        </button>
+                    </li>
+                    <!-- <li>
+                <button onclick="handleButtonClick(this)">
+                    <img src="assets/categorylist/fashionicon.svg">
+                    <p>fashion</p>
+                    <img class="bg-graphic" src="assets/categorylist/fashionbg1.svg">
+                    <img class="bg-graphic-alt" src="assets/categorylist/fashionbg2.svg">
+                </button>
+            </li> -->
+                </ul>
+
+            </div>
+
+
+            <!-- CHOOSE MEDIA  -->
+            <h2 style="top: -80px; position: relative;">select media to interact</h2>
+
+
+            <div class="media-list-container">
+                <ul class="media-list" id="books-list">
+                    <li>
+                        <a href="#book-modal-1" class="modal-link" data-modal-file="modals/book1.html">
+                            <img src=" assets/book0.svg">
+                        </a>
+                    </li>
+                    <li> <a href="#book-modal-2" class="modal-link" data-modal-file="modals/book2.html">
+                            <img src="assets/categorylist/infinite_jest.svg">
+                        </a> </li>
+                    <!-- <li> <img src="assets/book0.svg"> </li> -->
+                </ul>
+
+
+
+
+                <ul class="media-list" id="movies-list">
+                    <li> <a href="#movie-modal-1" class="modal-link" data-modal-file="modals/movie1.html"><img
+                                src="assets/movie0.svg">
+                        </a> </li>
+                    <li> <a href="#movie-modal-2" class="modal-link" data-modal-file="modals/movie2.html"><img
+                                src="assets/movies/movie2.svg">
+                        </a> </li>
+                </ul>
+
+
+                <ul class="media-list" id="art-list">
+                    <li> <a href="#art-modal-1" class="modal-link" data-modal-file="modals/art1.html"><img
+                                src="assets/art/art1.svg">
+                        </a></li>
+                    <li> <a href="#art-modal-2" class="modal-link" data-modal-file="modals/art2.html"><img
+                                src="assets/art/alfred_stoll_.svg">
+                        </a></li>
+                    <!-- <li> <img src=""> </li> -->
+                </ul>
+
+            </div>
+
+
+            <!-- BOOK MODALS -->
+
+            <div id="book-modal-1" class="modal">
+                <div class="modal-content">
+                    <span class="modal-exit" onclick="closeModal('book-modal-1')">&times;</span>
+                    <iframe class="modal-iframe" frameborder="0"></iframe>
+                    <!-- <div class="border-offset"> </div> -->
+                    <!-- <div class="bg-graphic-modal"></div> -->
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Modal for Book 2 -->
+
+            <div id="book-modal-2" class="modal">
+                <div class="modal-content">
+                    <span class="modal-exit" onclick="closeModal('book-modal-2')">&times;</span>
+                    <iframe class="modal-iframe" frameborder="0"></iframe>
+                    <!-- <div class="border-offset"> </div> -->
+                    <!-- <div class="bg-graphic-modal"></div> -->
+                </div>
+            </div>
+
+
+            <!-- MOVIE MODALS -->
+            <div id="movie-modal-1" class="modal">
+                <div class="modal-content">
+                    <span class="modal-exit" onclick="closeModal('movie-modal-1')">&times;</span>
+                    <iframe class="modal-iframe" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div id="movie-modal-2" class="modal">
+                <div class="modal-content">
+                    <span class="modal-exit" onclick="closeModal('movie-modal-2')">&times;</span>
+                    <iframe class="modal-iframe" frameborder="0"></iframe>
+                </div>
+            </div>
+
+
+            <!-- ART MODALS -->
+
+            <div id="art-modal-1" class="modal">
+                <div class="modal-content">
+                    <span class="modal-exit" onclick="closeModal('art-modal-1')">&times;</span>
+                    <iframe class="modal-iframe" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div id="art-modal-2" class="modal">
+                <div class="modal-content">
+                    <span class="modal-exit" onclick="closeModal('art-modal-2')">&times;</span>
+                    <iframe class="modal-iframe" frameborder="0"></iframe>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+
+        // SELECT MEDIA
+        function handleButtonClick(button) {
+
+            const allMediaLists = document.querySelectorAll('.media-list');
+            allMediaLists.forEach(mediaList => {
+                mediaList.classList.remove('visible');
+            });
+
+            const buttonText = button.querySelector('p').textContent.toLowerCase();
+            const selectedMediaList = document.getElementById(`${buttonText}-list`);
+
+            if (selectedMediaList) {
+                selectedMediaList.classList.add('visible');
+            }
+
+            const allLiItems = document.querySelectorAll('.category-list li');
+            allLiItems.forEach(li => {
+                li.style.transform = 'none';
+            });
+            // Reset rotation for all bg-graphic elements
+            const allBgGraphics = document.querySelectorAll('.bg-graphic, .bg-graphic-alt');
+            allBgGraphics.forEach(graphic => {
+                graphic.classList.remove('rotated');
+                graphic.classList.remove('skew');
+            });
+
+            // Scale up the clicked li
+            button.closest('li').style.transform = 'scale(1.2)';
+
+            // Rotate the bg-graphic associated with the clicked li
+            const bgGraphic = button.querySelector('.bg-graphic');
+            bgGraphic.classList.add('rotated');
+
+            const bgGraphicAlt = button.querySelector('.bg-graphic-alt');
+            bgGraphicAlt.classList.add('skew');
+
+
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalLinks = document.querySelectorAll('.modal-link');
+
+            modalLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const modalId = link.getAttribute('href').substring(1);
+                    const modalFilePath = link.getAttribute('data-modal-file');
+                    loadModalContent(modalId, modalFilePath);
+                });
+            });
+        });
+
+        function loadModalContent(modalId, filePath) {
+            const modal = document.getElementById(modalId);
+            const dimmedBackground = document.getElementById('dimmedBackground');
+
+            if (modal && dimmedBackground) {
+                const iframe = modal.querySelector('.modal-iframe');
+                iframe.src = filePath;
+
+
+                modal.style.display = 'block';
+                dimmedBackground.style.display = 'block';
+                // Toggle the visibility of the background graphic
+                const bgGraphic = modal.querySelector('.bg-graphic-modal');
+                if (bgGraphic) {
+                    bgGraphic.style.display = 'block';
+                }
+
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const dimmedBackground = document.getElementById('dimmedBackground');
+
+            modal.style.display = 'none';
+            dimmedBackground.style.display = 'none';
+
+            if (modal && dimmedBackground) {
+                // Toggle the visibility of the background graphic
+                const bgGraphic = modal.querySelector('.bg-graphic-modal');
+                if (bgGraphic) {
+                    bgGraphic.style.display = 'none';
+                }
+
+
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Metamodern Media</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles\style.css">
+    <link rel="stylesheet" href="styles\media.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body class="body">
+
+
+
+
+
+
+    <div class="image-container" style="position: absolute; top: 10px; left: 100px;">
+        <img src="assets\movies\eeo1.jpg" style="width: 50%;">
+        <div id="myButton" class="rec"
+            style="z-index:2; background-color:blue ; width: 40px; height: 40px; position: inherit; top: 20px; left: 20px; border-radius: 60px;">
+        </div>
+
+
+        <p style="position: absolute; top: 300px; color: black; font-size: 2em;"> Test test <span id="underline1"
+                style="color:blue; text-decoration: underline dotted;;"> The
+                test </span> </p>
+    </div>
+
+
+    <script src=" https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+
+
+        // With the above scripts loaded, you can call `tippy()` with a CSS
+        // selector and a `content` prop:
+        tippy('#myButton', {
+            content: 'My tooltip!',
+            trigger: 'click',
+            arrow: true,
+            placement: 'bottom',
+            theme: 'tomato',
+
+        });
+
+        tippy('#underline1', {
+            content: 'My tooltip!',
+            trigger: 'click',
+            arrow: true,
+            placement: 'bottom',
+            content: '<strong>Bolded content</strong> <img src="assets/about_icon.svg">',
+            allowHTML: true,
+
+        });
+    </script>
+
+
+    s
+
+
+</body>
+
+</html>

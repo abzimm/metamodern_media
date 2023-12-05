@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    <link rel="stylesheet" href="../styles/art-modal.css">
+    <link rel="stylesheet" href="../styles/tooltip.css">
+</head>
+
+<body>
+
+    <!-- <div class="content-container"> -->
+
+    <div class="image-container">
+
+        <img src="../assets/art/art1.svg">
+
+        <div id="fact1" class="icon">
+        </div>
+
+        <div id="fact2" class="icon" style="position: absolute; left: 120px; top: 300px;">
+        </div>
+
+        <div id="fact3" class="icon" style="position: absolute; left: 200px; top: 120px;">
+        </div>
+
+
+    </div>
+
+
+    <div class="text-container">
+        <p>“Make Yourself Presentable” - Camila Salinas
+            <br><br>
+            This piece showcases the metamodern feeling of hyper-self-reflexivity, or an intensive inner lens of the
+            self.
+            Interestingly, the artist Camila is a popular creator on the platform Tiktok, which has popularized ideas
+            like “main character syndrome” and the construction of intricate framings for identity.
+            <br><br> <span style="color:#C1FF3D"> Tap stars to learn more. </span>
+        </p>
+    </div>
+
+    <script src=" https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+
+    <script>
+        const icons = document.querySelectorAll('.icon');
+
+        icons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.classList.add('shaking');
+                setTimeout(() => {
+                    icon.classList.remove('shaking');
+                }, 500); // Adjust the duration of the shake animation
+            });
+        });
+
+        // selector and a `content` prop:
+        tippy('#fact1', {
+            content: '" It is supposed to represent how at certain times in our lives we have to give a part of ourselves to create a new self going forwards."',
+            trigger: 'click',
+            arrow: true,
+            placement: 'top',
+            theme: 'custom-theme',
+
+        });
+
+
+        tippy('#fact2', {
+            content: '"The unfinished monochromatic portraits have all lost a part of themselves as theyve contributed to the new me."',
+            trigger: 'click',
+            arrow: true,
+            placement: 'bottom',
+            theme: 'custom-theme',
+
+        });
+
+
+        tippy('#fact3', {
+            content: 'The direct eye contact forces the viewer to confront Camila and see themselves in her.',
+            trigger: 'click',
+            arrow: true,
+            placement: 'right',
+            theme: 'custom-theme',
+
+        });
+    </script>
+</body>
+
+</html>

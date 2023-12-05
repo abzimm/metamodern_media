@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Set the height to 100% of the viewport height */
+    background-color: transparent !important;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.image-container {
+    position: relative;
+    width: 595px;
+    height: 385px;
+    margin: 0;
+    overflow: hidden;
+
+}
+
+
+.image-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* opacity: 0; */
+}
+
+/* .image-container img.visible {
+    opacity: 1;
+} */
+
+.text-container {
+    flex: 1;
+}
+
+.progress-container {
+    width: 80%;
+    position: absolute;
+    top: 85%;
+    /* Add position relative */
+}
+
+#progress-bar {
+    position: relative;
+    /* Add position relative */
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 3px solid black;
+    min-width: 0%;
+    max-width: 100%;
+
+    /* overflow: hidden; */
+}
+
+#progress-bar:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background-color: #FF5733;
+    /* Set the alternate background color */
+    width: 0;
+    transition: width 0.3s ease;
+    /* Add transition for smooth effect */
+}
+
+#progress-bar.active:before {
+    width: 100%;
+}
+
+
+
+#draggable-circle {
+    position: absolute;
+    margin-top: -1%;
+    margin-left: -2%;
+    width: 45px;
+    height: 45px;
+    background-color: #C1FF3D;
+    border: 3px solid #333333;
+    border-radius: 50%;
+    cursor: grab;
+    user-select: none;
+
+}
+
+p {
+    z-index: 10;
+    position: absolute;
+    margin: 2% 2%;
+    max-height: 150px;
+    max-width: 600px;
+    background-color: black;
+    padding: 5px;
+    font-family: 'Amiko', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+    letter-spacing: -0.5px;
+    color: white;
+    transition: opacity 0.5s ease;
+    border-bottom: 2px solid var(--blue);
+    border-top: 2px solid var(--blue);
+
+}
+
+.alt-text {
+    z-index: 5;
+    position: absolute;
+    max-height: 120px;
+    max-width: 600px;
+    top: 270px;
+    left: 100px;
+}
+
+
+.group {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.group.visible {
+    opacity: 1;
+}

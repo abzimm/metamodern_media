@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Cards</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="..\styles\book-modal.css">
+</head>
+
+<body>
+
+
+    <div class="content">
+
+        <div class="container">
+            <div class="card drag">
+                <p>
+                    <span class="quote"> <span>“</span>Like most North Americans of his generation, Hal tends to know
+                        way less about why he feels certain ways about the objects and pursuits he's devoted to than he
+                        does about the objects and pursuits themselves. It's hard to say for sure whether this is even
+                        exceptionally bad, this tendency.<span>”</span> </span>
+                </p>
+            </div>
+            <div class="card drag">
+                <p>
+                    <span class="quote"> <span>“</span>...And then it’s stuck there, the weary cynicism that saves us
+                        from gooey sentiment and unsophisticated naivete.<span>”</span> </span>
+                    <br><br>It's a work that appeals to American sensibilities: even in the face of crisis and
+                    uncertainty, there's not much else to do but keep working and creating and living. It rejects the
+                    resigned attitude of postmodernism.
+
+                </p>
+            </div>
+            <div class="card drag">
+                <p>
+                    <span class="quote"> <span>“</span>Irony's gone from liberating to enslaving.<span>”</span> </span>
+                    <br><br>Infinite Jest is layered and complex, remixing high and low culture to become something that
+                    transcends the media it draws inspiration from. This metamodern idea of transcendence, or “speaking
+                    double”, allows the work to be a meta-commentary on culture while also acting as an agent of culture
+                    itself.
+
+                </p>
+
+
+            </div>
+            <div class="card drag">
+                <!-- <div class="card-decal"> <img src="..\assets\categorylist\bookbg.svg"></div> -->
+                <p> <b> David Foster Wallace's <i>Infinite Jest</i> </b> is considered to be the first “metamodern”
+                    novel. It has several
+                    storylines, a nonlinear narrative, and hundreds of extensive footnotes. The book focuses on themes
+                    like the dominance of entertainment and how to make meaning out of the human condition.
+                </p>
+
+
+            </div>
+            <div class="card drag">
+                <!-- <div class="card-decal"> <img src="..\assets\categorylist\bookbg.svg"></div> -->
+                <img class="card-image" src="../assets/categorylist/infinite_jest.svg">
+                <p class="drag-tip">
+                    <span style="color:var(--blue)"> <b>Drag and stack cards to view. </b> </span>
+                </p>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggabilly/2.2.0/draggabilly.pkgd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const DRAG_ELEMENTS = document.querySelectorAll(".drag");
+            const CONTAINER = document.querySelector(".container");
+
+            let highestIndex = 1;
+            let draggies = [];
+
+            DRAG_ELEMENTS.forEach((dragElem, index) => {
+                const DRAGGIE = new Draggabilly(dragElem, {
+                    containment: CONTAINER,
+                });
+
+                draggies.push(DRAGGIE);
+
+                // Set initial positioning and z-index
+                const initialOffset = 10 * index; // Adjust the offset value as needed
+                Object.assign(dragElem.style, {
+                    left: `${initialOffset}px`,
+                    top: `${initialOffset}px`,
+                    zIndex: highestIndex,
+                });
+
+                highestIndex++;
+
+                DRAGGIE.on("dragStart", (event) => {
+                    dragElem.style.zIndex = highestIndex;
+                    dragElem.classList.add("dragging");
+                    CONTAINER.classList.add("dragging");
+                    highestIndex++;
+                });
+
+                DRAGGIE.on("dragEnd", (event) => {
+                    dragElem.classList.remove("dragging");
+                    CONTAINER.classList.remove("dragging");
+
+                    // If images are overlapping, stack them
+                    if (dropElem) {
+                        dragElem.classList.add("dropped");
+                    } else {
+                        dragElem.classList.remove("dropped");
+                    }
+                });
+
+                dragElem.addEventListener("mouseover", (event) => {
+                    dropElem = dragElem;
+                });
+
+                dragElem.addEventListener("mouseout", (event) => {
+                    dropElem = null;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

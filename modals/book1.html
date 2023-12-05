@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Cards</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="..\styles\book-modal.css">
+</head>
+
+<body>
+
+
+    <div class="content">
+
+        <div class="container">
+            <div class="card drag">
+                <p>
+                    <span class="quote"> <span>“</span>Used in a personal sense, the phrase 'achieve an end' seemed to
+                        her a small-minded snare. She preferred the word life, and, on rare occasions,
+                        happiness..<span>”</span> </span>
+                </p>
+            </div>
+            <div class="card drag">
+                <p>
+                    <span class="quote"> <span>“</span>So everything lets us down, including curiosity and honesty and
+                        what we love best...but cheer up, it's fun in the end.<span>”</span> </span>
+                    <br><br>
+                    Despite its depictions of the worst of humanity, the reader is left with a sense of ambivalence. In
+                    true metamodern fashion, 2666 allows its audience to straddle the line between despair and optimism.
+                    This undefined area, it suggests, is the most natural space to inhabit.
+                </p>
+            </div>
+            <div class="card drag">
+                <p>
+                    <span class="quote"> <span>“</span>Only in chaos are we conceivable.<span>”</span> </span>
+                    <br><br> <i> 2666 </i>, with its dizzying plot lines and lengthy digressions, speaks to our modern
+                    experience. Within the information age, our perception
+                    of
+                    the world feels boundless and fragmented. The thoughts of the entire planet coalesce. In these
+                    conditions, is it even possible to make sense of things?
+                </p>
+
+
+            </div>
+            <div class="card drag">
+                <!-- <div class="card-decal"> <img src="..\assets\categorylist\bookbg.svg"></div> -->
+                <p> <b> Roberto Bolano's <i>2666</i> </b> is a monumental novel comprised of five dissonant stories. It
+                    embeds
+                    narratives within narratives, and its fragmented nature is compounded by how the characters
+                    themselves are searching for different stories. The book is much more interested in <i>being
+                        itself</i>
+                    than offering clear-cut
+                    conclusions.
+
+                </p>
+
+
+            </div>
+            <div class="card drag">
+                <!-- <div class="card-decal"> <img src="..\assets\categorylist\bookbg.svg"></div> -->
+                <img class="card-image" src="../assets/book0.svg">
+                <p class="drag-tip">
+                    <span style="color:var(--blue)"> <b>Drag and stack cards to view. </b> </span>
+                </p>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggabilly/2.2.0/draggabilly.pkgd.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const DRAG_ELEMENTS = document.querySelectorAll(".drag");
+            const CONTAINER = document.querySelector(".container");
+
+            let highestIndex = 1;
+            let draggies = [];
+
+            DRAG_ELEMENTS.forEach((dragElem, index) => {
+                const DRAGGIE = new Draggabilly(dragElem, {
+                    containment: CONTAINER,
+                });
+
+                draggies.push(DRAGGIE);
+
+                // Set initial positioning and z-index
+                const initialOffset = 10 * index; // Adjust the offset value as needed
+                Object.assign(dragElem.style, {
+                    left: `${initialOffset}px`,
+                    top: `${initialOffset}px`,
+                    zIndex: highestIndex,
+                });
+
+                highestIndex++;
+
+                DRAGGIE.on("dragStart", (event) => {
+                    dragElem.style.zIndex = highestIndex;
+                    dragElem.classList.add("dragging");
+                    CONTAINER.classList.add("dragging");
+                    highestIndex++;
+                });
+
+                DRAGGIE.on("dragEnd", (event) => {
+                    dragElem.classList.remove("dragging");
+                    CONTAINER.classList.remove("dragging");
+
+                    // If images are overlapping, stack them
+                    if (dropElem) {
+                        dragElem.classList.add("dropped");
+                    } else {
+                        dragElem.classList.remove("dropped");
+                    }
+                });
+
+                dragElem.addEventListener("mouseover", (event) => {
+                    dropElem = dragElem;
+                });
+
+                dragElem.addEventListener("mouseout", (event) => {
+                    dropElem = null;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

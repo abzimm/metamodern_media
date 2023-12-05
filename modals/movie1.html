@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/movie-modal.css">
+</head>
+
+<body>
+
+    <div class="content-container">
+
+        <div class="image-container">
+            <div class="group" id="group-1">
+                <img src="../assets/movies/eeo1.jpg">
+                <p> drag slider to watch </p>
+            </div>
+
+            <div class="group" id="group-2">
+                <img src="../assets/movies/everything-everywhere-all-at-once.gif">
+                <p> this movie tells the story of evelynn. </p>
+                <p class="alt-text"> her multiple lives and storylines show how overwhelming it is to be a
+                    person. </p>
+                <!-- Add more images as needed -->
+            </div>
+
+            <div class="group" id="group-3">
+                <img src="../assets/movies/eegif2.gif">
+                <p> in our connected age, how can we live in an everything reality? </p>
+                <p class="alt-text"> how do you make sense of yourself when you can access the entire world? </p>
+                <!-- Add more images as needed -->
+            </div>
+
+            <div class="group" id="group-3">
+                <img src="../assets/movies/eegif3.gif">
+                <p> the film's answer is to be as sincere as possible, </p>
+                <p class="alt-text">even if it seems ridiculous at the moment. </p>
+                <!-- Add more images as needed -->
+            </div>
+
+            <div class="group" id="group-3">
+                <img src="../assets/movies/eegif4.gif">
+                <p> instead of being defeated by the absurd, EEAAO celebrates it. </p>
+                <p class="alt-text"> "nothing matters...we can do whatever we want!" </p>
+                <!-- Add more images as needed -->
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar">
+                <div id="draggable-circle"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 
+    <div class="text-container">
+        <p> text text </p>
+    </div> -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressBar = document.getElementById('progress-bar');
+            const draggableCircle = document.getElementById('draggable-circle');
+            const images = document.querySelectorAll('.image-container img');
+            const text = document.querySelectorAll('.image-container p');
+            const imageGroups = document.querySelectorAll('.group');
+
+            let isDragging = false;
+
+            // Mouse events
+            draggableCircle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', handleDrag);
+            document.addEventListener('mouseup', stopDrag);
+
+            // Touch events
+            draggableCircle.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchmove', handleDrag);
+            document.addEventListener('touchend', stopDrag);
+
+            function startDrag(event) {
+                isDragging = true;
+                event.preventDefault();
+            }
+
+            function handleDrag(event) {
+                if (isDragging) {
+                    const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
+                    const progressBarRect = progressBar.getBoundingClientRect();
+                    const newPosition = clientX - progressBarRect.left;
+                    const progressPercentage = (newPosition / progressBarRect.width) * 100;
+                    // Adjust the reference point for touch events
+                    // const touchOffsetX = event.type.startsWith('touch') ? circleRect.width / 2 : 0;
+
+
+                    if (progressPercentage >= 0 && progressPercentage <= 100) {
+                        draggableCircle.style.left = `${progressPercentage}%`;
+
+
+                        // Calculate the index dynamically based on the number of images
+                        // Calculate the index dynamically based on the number of image groups
+                        const indexToShow = Math.floor((progressPercentage / 100) * imageGroups.length);
+
+                        setVisibility(indexToShow);
+                    }
+                }
+            }
+
+            function stopDrag() {
+                isDragging = false;
+            }
+
+            function setVisibility(indexToShow) {
+                imageGroups.forEach((group, index) => {
+                    if (index === indexToShow) {
+                        group.classList.add('visible');
+                    } else {
+                        group.classList.remove('visible');
+                    }
+                });
+            }
+
+            setVisibility(0);
+        });
+    </script>
+</body>
+
+</html>

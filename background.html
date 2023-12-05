@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Metamodern Media</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/background.css">
+
+</head>
+
+<body>
+  <div class="transition-overlay"></div>
+
+  <div class="container">
+
+    <div class="nav">
+      <ul>
+        <li> <a href="background.html"> <img src="assets/theory_icon_.webp"> </a> </li>
+        <li><a href="media.html"> <img src="assets/media_icon_.webp"> </a></li>
+        <li> <a href="about.html"> <img src="assets/about_icon_.webp"> </a></li>
+        <li style="margin-top: 150%;"> <a href="index.html"> <img src="assets/houseicon.svg"> </a></li>
+      </ul>
+    </div>
+
+    <div class="content-container">
+      <section id="intro">
+        <h3> What is Metamodernism? </h3>
+        <div class="layout1">
+          <!-- <img src="assets/book0.svg"> -->
+          <p> Is it a movement? A philosophy? A new form of critical discourse? Metamodernism can be a difficult concept
+            to grasp, but it can be thought of as the cultural attitude of the digital age. </p>
+          <!-- <p> <b> Select a section to jump to it. Tap underlined terms to learn more. </b> </p> -->
+        </div>
+      </section>
+
+      <ul class="jump-to" style="font-size: 1em;">
+        <li> <a href="#history" onclick="scrollToSection('#history')">
+            <h3> History </h3>
+          </a> </li>
+        <li> <a href="#theory" onclick="scrollToSection('#theory')">
+            <h3> Theory </h3>
+          </a> </li>
+        <li> <a href="#today" onclick="scrollToSection('#today')">
+            <h3> Today </h3>
+          </a> </li>
+      </ul>
+
+      <section id="history">
+        <h3> History </h3>
+        <div class="layout">
+          <span class="left-image">
+            <img src="assets/derrida_.svg">
+            <img class="shape" style="left:20px; top:540px;" src="assets/shape1.svg">
+          </span>
+          <p class="right-text"> In order to understand metamodernism, it's essential to understand its history. <br>
+            <br>
+            After the industrial revolution, the popular <span> episteme </span> was “modernism”, or a cultural
+            philosophy that was heavily optimistic for the future. Tradition was dead. Innovation and breaking the
+            status quo was the new driving force. There was an attitude that humans could become the masters of their
+            own destiny.
+            <br><br>
+            But after WWII, the world became more cynical. The great modernist experiment was reversed–suddenly, people
+            became more critical of technology and culture, denouncing optimistic ideas and beliefs. This general shift
+            is called postmodernism. In our recent postmodernist culture, criticism, irony, and individualism has become
+            more popular, with the structures that make up society becoming heavily scrutinized.
+            <br><br>
+            With the advent of the internet, however, a new philosophy has been emerging. The question becomes: <span>
+              What comes after postmodernism? </span> What beliefs will shape our new generations? To some people, the
+            answer to this is <i> metamodernism </i>.
+          </p>
+        </div>
+      </section>
+
+      <section id="theory">
+        <h3> Theory </h3>
+        <div class="layout">
+
+          <p class="right-text"> In 2010, Timotheus Vermeulen and Robin van den Akker released an academic article
+            called Notes on Metamodernism, and uploaded a site of the same name that explored this idea in depth. The
+            main definition of this new term was an “oscillation between the ironic and sincere”: a swinging pendulum
+            between the criticality of postmodernism and optimism of modernism.
+            <br><br> Metamodernism has evolved since its initial conception, growing to encompass a greater framework
+            for how we can understand our hyper-connected digital world. As technology accelerates and reorients the way
+            we perceive reality, new modes of thinking can help us grapple with making sense of it all.
+            <br><br> We are flooded with information. We understand more about humanity than we ever have. Binary
+            thinking of good and bad, we versus them, old and new, no longer apply to the infinite expanse of
+            possibility and knowledge that we're becoming enmeshed with. So it's important to oscillate, to understand
+            that contradictory ideas can both be true. Most of all, it's important to transcend old ways of thinking in
+            order to make something new.
+
+          </p>
+          <span class="left-image">
+            <img src="assets/metamodern_book.svg">
+            <img class="shape2" src="assets/shape2.svg">
+          </span>
+        </div>
+      </section>
+
+      <section id="today">
+        <h3> Today </h3>
+        <div class="layout">
+          <span class="left-image">
+            <img src="assets/phone.svg" style="transform:rotate(-5deg);">
+            <img class="shape3" style="position: absolute; top: 1900px; left: 30px;" src="assets/shape3.svg">
+          </span>
+          <p class="right-text"> So what does this all mean for us today?
+            <br><br>
+            Metamodernist ideas can be seen in how we navigate our daily lives; we live in both the digital and physical
+            worlds, going in between them seamlessly to yield creation and understanding beyond what could be achieved
+            alone.
+            <br><br>
+            For younger generations, screens full of media and information will be something they've known since birth.
+            It's more important than ever to create guidelines for perceiving reality. It's more important than ever to
+            discern nuance and critical thinking, especially as rapidly growing technology distorts the way we see
+            truth, privacy,
+            narratives, sensory experiences, and each other. Adapting metamodern ideas can help us navigate our future.
+
+
+          </p>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <script>
+    function scrollToSection(sectionId) {
+      document.querySelector(sectionId).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+
+</html>

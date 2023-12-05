@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/movie-modal.css">
+</head>
+
+<body>
+
+    <div class="content-container">
+
+        <div class="image-container">
+            <div class="group" id="group-1">
+                <img src="../assets/movies/ac1.png">
+                <p> drag slider to watch </p>
+            </div>
+
+            <div class="group" id="group-2">
+                <img src="../assets/movies/ac2.webp">
+                <p> asteroid city nests narratives within each other. it follows people who seem to be searching for
+                    something.</p>
+                <p class="alt-text"> like many wes anderson films, it can be felt more than understood upon first
+                    viewing. </p>
+                <!-- Add more images as needed -->
+            </div>
+
+            <div class="group" id="group-3">
+                <img src="../assets/movies/ac3.gif">
+                <p> its many characters can seem lost or nihilistic, starting to lose the meaning in things.</p>
+                <p class="alt-text"> but the film never feels cynical. in a way, it tries to make peace with itself.
+                </p>
+                <!-- Add more images as needed -->
+            </div>
+
+            <div class="group" id="group-3">
+                <img src="../assets/movies/ac4.gif">
+                <p> "I still don't understand what the play is about." “It doesn't matter. Just tell the story the best
+                    you can.” </p>
+                <p class="alt-text"> these lines sum up the ideas of humanity and purpose this film encapsulates. </p>
+                <!-- Add more images as needed -->
+            </div>
+
+            <div class="group" id="group-3">
+                <img src="../assets/movies/ac5.gif">
+                <p> existential questions are picked up and played with, </p>
+                <p class="alt-text"> and ultimately get set down to deal with later. </p>
+                <!-- Add more images as needed -->
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar">
+                <div id="draggable-circle"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressBar = document.getElementById('progress-bar');
+            const draggableCircle = document.getElementById('draggable-circle');
+            const images = document.querySelectorAll('.image-container img');
+            const text = document.querySelectorAll('.image-container p');
+            const imageGroups = document.querySelectorAll('.group');
+
+            let isDragging = false;
+
+            // Mouse events
+            draggableCircle.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', handleDrag);
+            document.addEventListener('mouseup', stopDrag);
+
+            // Touch events
+            draggableCircle.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchmove', handleDrag);
+            document.addEventListener('touchend', stopDrag);
+
+            function startDrag(event) {
+                isDragging = true;
+                event.preventDefault();
+            }
+
+            function handleDrag(event) {
+                if (isDragging) {
+                    const clientX = event.type.startsWith('touch') ? event.touches[0].clientX : event.clientX;
+                    const progressBarRect = progressBar.getBoundingClientRect();
+                    const newPosition = clientX - progressBarRect.left;
+                    const progressPercentage = (newPosition / progressBarRect.width) * 100;
+                    // Adjust the reference point for touch events
+                    // const touchOffsetX = event.type.startsWith('touch') ? circleRect.width / 2 : 0;
+
+
+                    if (progressPercentage >= 0 && progressPercentage <= 100) {
+                        draggableCircle.style.left = `${progressPercentage}%`;
+
+
+                        // Calculate the index dynamically based on the number of images
+                        // Calculate the index dynamically based on the number of image groups
+                        const indexToShow = Math.floor((progressPercentage / 100) * imageGroups.length);
+
+                        setVisibility(indexToShow);
+                    }
+                }
+            }
+
+            function stopDrag() {
+                isDragging = false;
+            }
+
+            function setVisibility(indexToShow) {
+                imageGroups.forEach((group, index) => {
+                    if (index === indexToShow) {
+                        group.classList.add('visible');
+                    } else {
+                        group.classList.remove('visible');
+                    }
+                });
+            }
+
+            setVisibility(0);
+        });
+    </script>
+</body>
+
+</html>

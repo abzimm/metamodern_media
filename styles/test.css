@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+    background-color: #f0f0f0;
+}
+
+.video-container {
+    width: 80%;
+}
+
+#progress-bar {
+    position: relative;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#draggable-circle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #3498db;
+    border-radius: 50%;
+    cursor: grab;
+    user-select: none;
+}
+
+.image-container img {
+    height: 300px;
+    width: 300px;
+}
+
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiko&family=Gruppo&display=swap');
+
+
+.tippy-box[data-theme~='custom-theme'] {
+    background-color: #f6f4ee;
+    /* Change the background color as needed */
+    color: black;
+    /* Change the text color as needed */
+    padding: 10px;
+    font-size: 12px;
+    font-family: 'Amiko', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    filter: drop-shadow(5px 5px);
+
+}
+
+/* Add any additional styles for the arrow, etc. */
+.tippy-box[data-theme~='custom-theme'] .tippy-arrow {
+    color: #f6f4ee;
+
+
+    /* Match the tooltip background color */
+}

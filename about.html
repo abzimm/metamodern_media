@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Metamodern Media</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/background.css">
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+
+        .jump-to a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="transition-overlay"></div>
+
+    <div class="container">
+
+        <div class="nav">
+            <ul>
+                <li> <a href="background.html"> <img src="assets/theory_icon_.webp"> </a> </li>
+                <li><a href="media.html"> <img src="assets/media_icon_.webp"> </a></li>
+                <li> <a href="about.html"> <img src="assets/about_icon_.webp"> </a></li>
+                <li style="margin-top: 150%;"> <a href="index.html"> <img src="assets/houseicon.svg"> </a></li>
+            </ul>
+        </div>
+
+        <div class="content-container">
+            <section id="intro">
+                <h3> about </h3>
+                <div class="layout1">
+                    <p> This project was created for the Fall 2023 Projects in Digital Composition class, for Dr.
+                        Stephen Quigley, University of Pittsburgh. </p>
+                    <p> It was constructed around the idea of informing an audience about a topic I found interesting.
+                    </p>
+                    <p> The interface of this project is designed for an interactive kiosk with specific dimensions and
+                        usability principles in mind. </p>
+                    <p> Built entirely with vanilla HTML, CSS, and JavaScript. Uses tippy and draggable npm libraries.
+                        All images used are for non-profit academic purposes. </p>
+                </div>
+            </section>
+
+            <section id="intro">
+                <h3> bibliography </h3>
+                <div class="layout1">
+                    <ul
+                        style="display: flex; flex-direction: column; color: black; list-style-type: circle; line-height: 25px;  text-indent: 2%;">
+                        <li>“10 Questions with Alfred Stoll.” Al-Tiba9 Contemporary Art, 27 July 2021,
+                            www.altiba9.com/artist-interviews/alfred-stoll-narrative-sensuality-digital-painting.
+                            Accessed 1 Dec. 2023.
+
+                            Abramson, Seth. “Metamodernism 101.” Medium, 23 July 2015,
+                            medium.com/just-words/metamodernism-101-8cdb8563e0. </li>
+                        <li> Dember, Greg. “After Postmodernism: Eleven Metamodern Methods in the Arts.” Medium, 18 Nov.
+                            2020,
+                            medium.com/what-is-metamodern/after-postmodernism-eleven-metamodern-methods-in-the-arts-767f7b646cae.
+                        </li>
+                        <li>
+                            “Everything Metamodern All at Once.” What Is Metamodern?, 27 June 2022,
+                            whatismetamodern.com/film/everything-everywhere-all-at-once-metamodern/.
+                        </li>
+                        <li>
+                            “Digital Art by Alfred Stoll | Stoll Gallery | Metamodern Zone.” Stoll Gallery II,
+                            www.alfredstoll.com/stollgallery. Accessed 5 Dec. 2023.
+                        </li>
+                        <li>
+                            “How I Painted This in 30 Days.” Www.youtube.com,
+                            www.youtube.com/watch?app=desktop&v=ulxuQJZ6JwQ. Accessed 5 Dec. 2023.
+                        </li>
+                        <li>
+                            Medvetz, Thomas. “Transcendence, Fast and Slow: Infinite Jest and the Dynamics of a Cultural
+                            Splash.” American Journal of Cultural Sociology, vol. 11, 19 Jan. 2022,
+                            https://doi.org/10.1057/s41290-021-00148-9.
+                        </li>
+                        <li>
+                            Murray, Russell. “Asteroid City Flips Wes Anderson’s Meta Approach & Saves the Film.”
+                            Looper, 21 June 2023,
+                            www.looper.com/1314836/asteroid-city-does-opposite-metamodern-approach-other-wes-anderson-movies-makes-special/.
+                            Accessed 1 Dec. 2023.
+                        </li>
+                        <li>
+                            Ven, Inge Van De. “Monumental Novels in a Global and Digital Age.” PhD Dissertation, Utrecht
+                            University, 2015. Full Version Online: Https://Dspace.library.uu.nl/Handle/1874/327033,
+                            2015, www.academia.edu/18366408/Monumental_Novels_in_a_Global_and_Digital_Age. Accessed 4
+                            Dec. 2023.
+                        </li>
+                        <li>
+                            Vermeulen, Timotheus, and Robin van den Akker. “Notes on Metamodernism.” Journal of
+                            Aesthetics & Culture, vol. 2, no. 1, Jan. 2010, p. 5677,
+                            https://doi.org/10.3402/jac.v2i0.5677.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            function scrollToSection(sectionId) {
+                document.querySelector(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+
+</body>
+
+</html>

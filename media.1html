@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Metamodern Media</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/media.css">
+  <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
+</head>
+
+<body>
+
+
+  <div class="splide-container">
+
+
+    <div>
+      <button id="prev" class="custom-splide-arrow">
+        <img src="assets/arrow_test.svg">
+      </button>
+
+      <div id="splide" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide" data-category="books">
+              <p> BOOKS </p>
+            </li>
+            <li class="splide__slide" data-category="movies">
+              <p> MOVIES </p>
+            </li>
+            <li class="splide__slide" data-category="fashion">
+              <p> FASHION </p>
+            </li>
+            <!-- Add more slides as needed -->
+          </ul>
+        </div>
+      </div>
+
+      <button id="next" class="custom-splide-arrow" style="transform: scaleY(-1)"><img
+          src="assets/arrow_test.svg"></button>
+    </div>
+
+    <div>
+      <button id="prev-image" class="custom-splide-arrow" style="transform: scale(0.6)"><img
+          src="assets/arrow_test.svg"></button>
+
+      <div id="image-splide" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+
+              <img src="">
+
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <button id="next-image" class="custom-splide-arrow" style="transform: scaleY(-1) scale(0.6)"><img
+          src="assets/arrow_test.svg"></button>
+    </div>
+
+    <button> SELECT MEDIA </button>
+
+  </div>
+
+
+
+  <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var splide = new Splide('#splide', {
+        type: 'loop',
+        direction: 'ttb',
+        heightRatio: 1.5,
+        pagination: false,
+        arrows: false,
+      }).mount();
+
+      var imageSplide = new Splide('#image-splide', {
+        type: 'loop',
+        direction: 'ttb',
+        heightRatio: 1,
+        pagination: false,
+        arrows: false,
+      }).mount();
+
+      // Custom arrows for the first Splide instance
+      document.getElementById('prev').addEventListener('click', function () {
+        splide.go('-');
+      });
+
+      document.getElementById('next').addEventListener('click', function () {
+        splide.go('+');
+      });
+
+      document.getElementById('prev-image').addEventListener('click', function () {
+        imageSplide.go('-');
+      });
+
+      document.getElementById('next-image').addEventListener('click', function () {
+        imageSplide.go('+');
+      });
+
+      // Initial display of images for the "books" category
+      var initialImages = getCategoryImages('books');
+      updateImageSplide(initialImages);
+
+      // Update image-splide based on the active category
+      splide.on('moved', function (newIndex) {
+        var activeSlide = splide.Components.Elements.slides[newIndex];
+        var category = activeSlide.getAttribute('data-category');
+        var images = getCategoryImages(category);
+        updateImageSplide(images);
+      });
+
+      function getCategoryImages(category) {
+        // Define your image arrays based on categories
+        var imageArrays = {
+          books: ['assets/book0.svg', 'assets/book1.svg', 'path/to/books-image3.jpg'],
+          movies: ['assets/movie0.svg', 'path/to/movies-image2.jpg', 'path/to/movies-image3.jpg'],
+          fashion: ['assets/fashion0.svg', 'path/to/fashion-image2.jpg', 'path/to/fashion-image3.jpg'],
+          // Add more categories as needed
+        };
+
+        return imageArrays[category] || [];
+      }
+
+      function updateImageSplide(images) {
+        // Clear existing images
+        imageSplide.destroy();
+        document.querySelector('#image-splide .splide__list').innerHTML = '';
+
+        // Add the new images
+        images.forEach(function (imageURL) {
+          var newImage = document.createElement('li');
+          newImage.className = 'splide__slide';
+          newImage.innerHTML = '<img src="' + imageURL + '" alt="">';
+          document.querySelector('#image-splide .splide__list').appendChild(newImage);
+        });
+
+        // Reinitialize the imageSplide
+        imageSplide = new Splide('#image-splide', {
+          type: 'loop',
+          direction: 'ttb',
+          heightRatio: 1,
+          pagination: false,
+          arrows: false,
+        }).mount();
+      }
+    });
+
+  </script>
+
+
+
+
+</body>
+
+</html>

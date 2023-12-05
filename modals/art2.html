@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    <link rel="stylesheet" href="../styles/art-modal.css">
+    <link rel="stylesheet" href="../styles/tooltip.css">
+</head>
+
+<body>
+
+    <!-- <div class="content-container"> -->
+
+    <div class="image-container">
+
+        <img src="../assets/art/alfred_stoll_.svg">
+
+        <div id="fact1" class="icon" style="position: absolute; left: 80px; top: 50px;">
+        </div>
+
+        <div id="fact2" class="icon" style="position: absolute; left: 120px; top: 220px;">
+        </div>
+
+        <div id="fact3" class="icon" style="position: absolute; left: 200px; top: 120px;">
+        </div>
+
+
+    </div>
+
+
+    <div class="text-container">
+        <p>“Space” - Alfred Stoll
+            <br><br>
+            Stoll's artwork is defined by metamodernism–he values the remixing of materials and aesthetics, using both
+            digital and traditional mediums in his work. He calls it a “metamodern balance”, where there's neither black
+            nor white, but only the “fluctuations between them”. This fragmented style can be seen in <i>Space</i>'s
+            combination of older mosaic patterns mixed with modern stylings.
+            <br><br> <span style="color:#C1FF3D"> Tap stars to learn more. </span>
+        </p>
+    </div>
+
+    <script src=" https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+
+    <script>
+        const icons = document.querySelectorAll('.icon');
+
+        icons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.classList.add('shaking');
+                setTimeout(() => {
+                    icon.classList.remove('shaking');
+                }, 500); // Adjust the duration of the shake animation
+            });
+        });
+
+        // selector and a `content` prop:
+        tippy('#fact1', {
+            content: '"Modern artists are increasingly using fragments of the past culture, refracting their own individuality through them."',
+            trigger: 'click',
+            arrow: true,
+            placement: 'top',
+            theme: 'custom-theme',
+
+        });
+
+
+        tippy('#fact2', {
+            content: 'Stoll is inspired by artist Gustav Klimt, known for his bold colors and shape language.',
+            trigger: 'click',
+            arrow: true,
+            placement: 'bottom',
+            theme: 'custom-theme',
+
+        });
+
+
+        tippy('#fact3', {
+            content: '"It is not the forms themselves that act on the beholder, but the atmosphere created through their combination."',
+            trigger: 'click',
+            arrow: true,
+            placement: 'right',
+            theme: 'custom-theme',
+
+        });
+    </script>
+</body>
+
+</html>
