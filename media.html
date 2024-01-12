@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles\style.css">
     <link rel="stylesheet" href="styles\media.css">
+    <meta http-equiv="refresh" content="180;url=index.html">
     <script src="main.js" defer></script>
 </head>
 
@@ -196,17 +197,17 @@
             allLiItems.forEach(li => {
                 li.style.transform = 'none';
             });
-            // Reset rotation for all bg-graphic elements
+
             const allBgGraphics = document.querySelectorAll('.bg-graphic, .bg-graphic-alt');
             allBgGraphics.forEach(graphic => {
                 graphic.classList.remove('rotated');
                 graphic.classList.remove('skew');
             });
 
-            // Scale up the clicked li
+
             button.closest('li').style.transform = 'scale(1.2)';
 
-            // Rotate the bg-graphic associated with the clicked li
+
             const bgGraphic = button.querySelector('.bg-graphic');
             bgGraphic.classList.add('rotated');
 
@@ -241,7 +242,7 @@
 
                 modal.style.display = 'block';
                 dimmedBackground.style.display = 'block';
-                // Toggle the visibility of the background graphic
+
                 const bgGraphic = modal.querySelector('.bg-graphic-modal');
                 if (bgGraphic) {
                     bgGraphic.style.display = 'block';
@@ -258,7 +259,7 @@
             dimmedBackground.style.display = 'none';
 
             if (modal && dimmedBackground) {
-                // Toggle the visibility of the background graphic
+
                 const bgGraphic = modal.querySelector('.bg-graphic-modal');
                 if (bgGraphic) {
                     bgGraphic.style.display = 'none';

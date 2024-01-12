@@ -11,33 +11,31 @@ body {
 .content-container {
     display: flex;
     flex-direction: column;
-    /* Corrected from col to column */
     position: absolute;
-    /* left: 220px; */
     top: 20px;
     height: 550px;
     width: 860px;
     overflow-y: scroll;
     overflow-x: hidden;
 
-    /* Customize the scrollbar */
+    /* Customize the scrollbar for WebKit browsers (Chrome, Safari) */
     scrollbar-width: thin;
     scrollbar-color: darkgray lightgray;
-}
 
-/* Customize the scrollbar for WebKit browsers (Chrome, Safari) */
-.content-container::-webkit-scrollbar {
-    width: 18px;
-}
+    /* Customize the scrollbar for WebKit browsers (Safari) */
+    &::-webkit-scrollbar {
+        width: 18px;
+    }
 
-.content-container::-webkit-scrollbar-thumb {
-    background-color: var(--black);
-    max-height: 10px;
-}
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--black);
+        max-height: 10px;
+    }
 
-.content-container::-webkit-scrollbar-track {
-    background-color: var(--white);
-    border: 1px var(--black) solid;
+    &::-webkit-scrollbar-track {
+        background-color: var(--white);
+        border: 1px var(--black) solid;
+    }
 }
 
 img {

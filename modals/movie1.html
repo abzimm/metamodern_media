@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="refresh" content="180;url=index.html">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/movie-modal.css">
 </head>
@@ -24,28 +24,24 @@
                 <p> this movie tells the story of evelynn. </p>
                 <p class="alt-text"> her multiple lives and storylines show how overwhelming it is to be a
                     person. </p>
-                <!-- Add more images as needed -->
             </div>
 
             <div class="group" id="group-3">
                 <img src="../assets/movies/eegif2.gif">
                 <p> in our connected age, how can we live in an everything reality? </p>
                 <p class="alt-text"> how do you make sense of yourself when you can access the entire world? </p>
-                <!-- Add more images as needed -->
             </div>
 
             <div class="group" id="group-3">
                 <img src="../assets/movies/eegif3.gif">
                 <p> the film's answer is to be as sincere as possible, </p>
                 <p class="alt-text">even if it seems ridiculous at the moment. </p>
-                <!-- Add more images as needed -->
             </div>
 
             <div class="group" id="group-3">
                 <img src="../assets/movies/eegif4.gif">
                 <p> instead of being defeated by the absurd, EEAAO celebrates it. </p>
                 <p class="alt-text"> "nothing matters...we can do whatever we want!" </p>
-                <!-- Add more images as needed -->
             </div>
         </div>
 
@@ -93,16 +89,14 @@
                     const progressBarRect = progressBar.getBoundingClientRect();
                     const newPosition = clientX - progressBarRect.left;
                     const progressPercentage = (newPosition / progressBarRect.width) * 100;
-                    // Adjust the reference point for touch events
-                    // const touchOffsetX = event.type.startsWith('touch') ? circleRect.width / 2 : 0;
+
 
 
                     if (progressPercentage >= 0 && progressPercentage <= 100) {
                         draggableCircle.style.left = `${progressPercentage}%`;
 
 
-                        // Calculate the index dynamically based on the number of images
-                        // Calculate the index dynamically based on the number of image groups
+                        //calculate dynamically based on image groups
                         const indexToShow = Math.floor((progressPercentage / 100) * imageGroups.length);
 
                         setVisibility(indexToShow);

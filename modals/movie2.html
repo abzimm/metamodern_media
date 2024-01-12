@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="refresh" content="180;url=index.html">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/movie-modal.css">
 </head>
@@ -25,7 +25,6 @@
                     something.</p>
                 <p class="alt-text"> like many wes anderson films, it can be felt more than understood upon first
                     viewing. </p>
-                <!-- Add more images as needed -->
             </div>
 
             <div class="group" id="group-3">
@@ -33,7 +32,6 @@
                 <p> its many characters can seem lost or nihilistic, starting to lose the meaning in things.</p>
                 <p class="alt-text"> but the film never feels cynical. in a way, it tries to make peace with itself.
                 </p>
-                <!-- Add more images as needed -->
             </div>
 
             <div class="group" id="group-3">
@@ -41,14 +39,12 @@
                 <p> "I still don't understand what the play is about." “It doesn't matter. Just tell the story the best
                     you can.” </p>
                 <p class="alt-text"> these lines sum up the ideas of humanity and purpose this film encapsulates. </p>
-                <!-- Add more images as needed -->
             </div>
 
             <div class="group" id="group-3">
                 <img src="../assets/movies/ac5.gif">
                 <p> existential questions are picked up and played with, </p>
                 <p class="alt-text"> and ultimately get set down to deal with later. </p>
-                <!-- Add more images as needed -->
             </div>
         </div>
 
@@ -91,16 +87,13 @@
                     const progressBarRect = progressBar.getBoundingClientRect();
                     const newPosition = clientX - progressBarRect.left;
                     const progressPercentage = (newPosition / progressBarRect.width) * 100;
-                    // Adjust the reference point for touch events
+                    
                     // const touchOffsetX = event.type.startsWith('touch') ? circleRect.width / 2 : 0;
 
 
                     if (progressPercentage >= 0 && progressPercentage <= 100) {
                         draggableCircle.style.left = `${progressPercentage}%`;
 
-
-                        // Calculate the index dynamically based on the number of images
-                        // Calculate the index dynamically based on the number of image groups
                         const indexToShow = Math.floor((progressPercentage / 100) * imageGroups.length);
 
                         setVisibility(indexToShow);
